@@ -26,8 +26,6 @@ RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/global
 RUN mkdir -p /var/www/html
 
-VOLUME /var/www/html/data
-
 # touch required files
 RUN touch /var/log/nginx/access.log && touch /var/log/nginx/error.log
 
@@ -46,4 +44,6 @@ EXPOSE 443
 RUN chown -R nginx:nginx /var/www/html/
 RUN chmod +x /var/www/html/config/run.sh
 ENTRYPOINT ["/var/www/html/config/run.sh"]
+
+VOLUME /var/www/html/data
 
