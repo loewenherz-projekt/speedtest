@@ -3,6 +3,8 @@ FROM alpine:3.9
 # greet me :)
 MAINTAINER Tobias Rös - <roes@amicaldo.de>
 
+VOLUME /var/www/html/data
+
 # install dependencies
 RUN apk update && apk add \
   bash \
