@@ -3,8 +3,6 @@ FROM alpine:3.9
 # greet me :)
 MAINTAINER Tobias Rös - <roes@amicaldo.de>
 
-VOLUME /var/www/html/data
-
 # install dependencies
 RUN apk update && apk add \
   bash \
@@ -46,3 +44,5 @@ EXPOSE 443
 RUN chown -R nginx:nginx /var/www/html/
 RUN chmod +x /var/www/html/config/run.sh
 ENTRYPOINT ["/var/www/html/config/run.sh"]
+
+VOLUME /var/www/html/data
