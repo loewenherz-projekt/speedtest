@@ -25,7 +25,8 @@ RUN mkdir -p /etc/nginx
 RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/global
 RUN mkdir -p /var/www/html
-RUN mkdir -p /var/www/html/data
+
+VOLUME /var/www/html/data
 
 # touch required files
 RUN touch /var/log/nginx/access.log && touch /var/log/nginx/error.log
@@ -42,7 +43,6 @@ RUN npm install -g yarn && cd /var/www/html/ && yarn install
 EXPOSE 80
 EXPOSE 443
 
-VOLUME ["/var/www/html/data/"]
 RUN chown -R nginx:nginx /var/www/html/
 RUN chmod +x /var/www/html/config/run.sh
 ENTRYPOINT ["/var/www/html/config/run.sh"]
