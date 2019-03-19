@@ -35,6 +35,8 @@ ADD ./config/vhost.conf /etc/nginx/conf.d/default.conf
 # install webroot files
 ADD ./ /var/www/html/
 
+RUN chmod 775 /var/www/html/scripts/speedtest.py
+
 # install bower dependencies
 RUN npm install -g yarn && cd /var/www/html/ && yarn install
 
